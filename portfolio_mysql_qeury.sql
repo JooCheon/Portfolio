@@ -1,3 +1,4 @@
+CREATE VIEW view_port AS
 select 
 conv.gov_dn_cd,conv.signgu_nm,conv.adstrd_nm,conv.sex_se,conv.year_se, sum(conv.cnsmr_popltn_co)/92 as conv_popltn_co, #편의점 정보값 불러오기 
 ifnull(i.ice_popltn_co,(select avg(ice.cnsmr_popltn_co) from ice where ice.bntr_nm like '서울%' and ice.year_se between 20 and 49 )) as ice_popltn_co , #아이스크림 값 가져오기 
